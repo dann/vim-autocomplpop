@@ -34,6 +34,7 @@ function s:makeDefaultBehavior()
         \   'javascript': [],
         \   'coffee'    : [],
         \   'ls'        : [],
+        \   'go'        : [],
         \ }
   "---------------------------------------------------------------------------
   if !empty(g:acp_behaviorUserDefinedFunction) &&
@@ -148,6 +149,13 @@ function s:makeDefaultBehavior()
         \   'meets'   : 'acp#meetsForJavaScriptOmni',
         \   'repeat'  : 0,
   \})
+  "---------------------------------------------------------------------------
+  call add(behavs.go, {
+        \   'command' : "\<C-x>\<C-o>",
+        \   'meets'   : 'acp#meetsForGoOmni',
+        \   'repeat'  : 0,
+        \ })
+
   return behavs
 endfunction
 
@@ -171,6 +179,7 @@ call l9#defineVariableDefault('g:acp_behaviorFileLength', 0)
 call l9#defineVariableDefault('g:acp_behaviorRubyOmniMethodLength', 0)
 call l9#defineVariableDefault('g:acp_behaviorRubyOmniSymbolLength', 1)
 call l9#defineVariableDefault('g:acp_behaviorPythonOmniLength', 0)
+call l9#defineVariableDefault('g:acp_behaviorGoOmniLength', 0)
 call l9#defineVariableDefault('g:acp_behaviorPerlOmniLength', -1)
 call l9#defineVariableDefault('g:acp_behaviorPhpOmniLength', 1)
 call l9#defineVariableDefault('g:acp_behaviorXmlOmniLength', 0)

@@ -131,6 +131,12 @@ function acp#meetsForPerlOmni(context)
         \ a:context =~ '\w->\k\{' . g:acp_behaviorPerlOmniLength . ',}$'
 endfunction
 
+function acp#meetsForGoOmni(context)
+  return g:acp_behaviorGoOmniLength >= 0 &&
+        \ a:context =~ '\k\.\k\{' . g:acp_behaviorGoOmniLength . ',}$'
+  return 0
+endfunction
+
 "
 function acp#meetsForPhpOmni(context)
   if g:acp_behaviorPhpOmniLength < 1
